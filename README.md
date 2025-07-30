@@ -1,2 +1,9 @@
-# Frailty_Classification
-Research on frailty classification and health improvement detection with machine learning 
+# Frailty Classification
+Frailty represents a critical challenge in aging societies, driven by rising demands for elderly care and increasing pressure on healthcare systems. This study proposes a machine learning-based framework for frailty classification and prediction, leveraging open-source datasets from the European Union and benchmarking results against current research in North America and Asia. Three core tasks are investigated: (i) frailty classification in elderly populations, (ii) frailty detection in post-stroke patients, and (iii) prediction of health improvement.
+
+In the first task, physical parameters are combined with sociol-clinical data, while in the second task four gait-related features are extracted from wearable inertial sensor data. Various classifiers are evaluated with attention to clinical interpretability, supported by PCA to visualize class separability. The findings reveal a different feature importance between countries, which suggests the importance of considering the cultural and demographic contexts during ML modeling. 
+
+Despite class imbalance and limited longitudinal data, the proposed framework demonstrates strong generalizability and interpretability. It outperforms existing methods in elderly frailty classification and comes close to the performance of established frameworks in stroke-related studies.
+By integrating sensor-derived parameters with sociol-clinical features, the framework aids clinicians in frailty assessment. However, the findings remark on the importance of interoperability between healthcare systems and advocate for a stronger collaboration between healthcare providers and machine learning practitioners to support early detection and move from patient treatment to frailty prevention in diverse populations.
+
+## Keywords: Elderly care; healthcare sustainability; stroke rehabilitation; frailty classification; demographic variability; FFP; FAC; health improvement prediction;  interoperability; gait analysis; AI; Machine Learning; feature engineering; SHAP; Principal Component Analysis;  SMOTE; class imbalance; Random Forest.
