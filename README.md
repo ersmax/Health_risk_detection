@@ -1,4 +1,4 @@
-# Frailty Classification and health improvement prediction
+# Machine learning applied to the elderly population and to patients affected by stroke.
 Frailty poses a significant challenge for aging populations, as growing elderly care needs strain healthcare systems. In response, this study introduces a machine‑learning framework for classifying and predicting frailty, using publicly available EU datasets and comparing its performance with recent work from North America and Asia. We focus on three main objectives: (1) classifying frailty among older adults, (2) detecting frailty in post‑stroke patients, and (3) forecasting health improvements.
 
 For the first objective, we merge physical measurements with socio‑clinical variables; for the second, we derive four gait metrics from wearable inertial sensors. We then assess several classifiers, emphasizing models that clinicians can interpret, and employ PCA to illustrate how well the groups separate. Our results highlight that feature importance varies by country, underscoring the need to account for cultural and demographic differences in model development.
