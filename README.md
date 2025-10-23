@@ -30,11 +30,7 @@ Core objectives
 Repository contents
 -------------------
 - prediction.ipynb — main analysis notebook (feature extraction, PCA, feature selection, model training, evaluation, plots).
-- backup_prediction/v7.0_final/prediction.ipynb — finalized / alternate notebook versions.
 - master_windows_with_labels.csv — aggregated windowed feature outputs (cached intermediate).
-- best_hyperparams_improvement.csv — example hyperparameter search results.
-- L1.py — small helper script.
-- dataset2/.../participant_info.csv — example participant metadata (see dataset folders).
 - images/ — figures used in the thesis and notebooks (e.g. images/pca_variance.png).
 
 Quick start
@@ -69,8 +65,7 @@ All thesis figures referenced by the notebooks and README are in the images/ fol
 
 How to cite
 -----------
-If you use the code or results, cite:
-Eros Masarin — "From Treatment to Prevention — Machine learning applied to the elderly population and to patients affected by stroke". Please mention the DOI of the Research paper: 
+Please mention this GitHub Repo and the DOI of the Research paper: 
 http://dx.doi.org/10.13140/RG.2.2.26133.23529
 
 
@@ -116,9 +111,11 @@ Selected regional studies (brief)
 
   - Collection methods: 
 
-  ![Wrist IMU schematic](images/fig2_wrist_IMU.png)
-  ![5 sensors IMU schematic](images/fig1_limbs_IMU.png)
-  ![Foot IMU sensor](images/fig3_foot_IMU.png)
+  <div style="display:flex;gap:12px;align-items:flex-start;">
+    <a href="images/fig2_wrist_IMU.png"><img src="images/fig2_wrist_IMU.png" alt="Wrist IMU schematic" style="height:160px;object-fit:contain;"></a>
+    <a href="images/fig1_limbs_IMU.png"><img src="images/fig1_limbs_IMU.png" alt="5 sensors IMU schematic" style="height:160px;object-fit:contain;"></a>
+    <a href="images/fig3_foot_IMU.png"><img src="images/fig3_foot_IMU.png" alt="Foot IMU sensor" style="height:160px;object-fit:contain;"></a>
+  </div>
 
 - United Kingdom
   - Leghissa et al.: large longitudinal study using derived FFP from survey data; logistic regression and MultiSURF feature selection; emphasis on long‑term prediction and feature derivation from questionnaires.
@@ -127,7 +124,6 @@ Selected regional studies (brief)
   - Aponte et al.: primary care EMR data (CPCSSN) with structured features; boosting models performed best; used SMOTE and emphasized physician‑assigned labels variability.
   - Thapa et al.: fall risk prediction using vitals + EHR; XGBoost best and SHAP used for explainability (medications, comorbidities top predictors).
   - Chen / Lucas et al.: IMU‑based monitoring in stroke patients (XGBoost / decision tree / RF; accuracy often 70–90% depending on task and features).
-  - Suggested image to track: images/fig4_four_limb_IMUs.png
 
 - Asia
   - Wu et al. (China): CLHLS‑HF cohort, Frailty Index trajectories and group‑based trajectory modelling; Random Forest + SHAP for explainability; social, ADL and chronic disease variables important.
