@@ -166,50 +166,50 @@ Summary
 - Features are pooled per placement or aggregated by placement‑group (LowerLimbs, UpperLimbs, Trunk) for analysis.
 
 <div style="display:flex;flex-wrap:wrap;gap:12px;">
-  <div style="flex:1 1 calc(50% - 12px);min-width:220px;box-sizing:border-box;text-align:center;">
+  <div style="flex:0 0 calc(50% - 12px);max-width:calc(50% - 12px);min-width:160px;box-sizing:border-box;text-align:center;">
     <a href="images/acceleration_magnitude.png">
       <img src="images/acceleration_magnitude.png" alt="Acceleration magnitude"
-           style="max-width:100%;max-height:180px;width:auto;height:auto;object-fit:contain;border-radius:4px;">
+           style="width:100%;max-height:120px;object-fit:contain;border-radius:4px;">
     </a>
     <div>Acceleration magnitude</div>
   </div>
 
-  <div style="flex:1 1 calc(50% - 12px);min-width:220px;box-sizing:border-box;text-align:center;">
+  <div style="flex:0 0 calc(50% - 12px);max-width:calc(50% - 12px);min-width:160px;box-sizing:border-box;text-align:center;">
     <a href="images/F1.png">
       <img src="images/F1.png" alt="F1 violin plot"
-           style="max-width:100%;max-height:180px;width:auto;height:auto;object-fit:contain;border-radius:4px;">
+           style="width:100%;max-height:120px;object-fit:contain;border-radius:4px;">
     </a>
     <div>F1 violin plot</div>
   </div>
 
-  <div style="flex:1 1 calc(50% - 12px);min-width:220px;box-sizing:border-box;text-align:center;">
+  <div style="flex:0 0 calc(50% - 12px);max-width:calc(50% - 12px);min-width:160px;box-sizing:border-box;text-align:center;">
     <a href="images/autocorr_single.png">
       <img src="images/autocorr_single.png" alt="Autocorrelation"
-           style="max-width:100%;max-height:180px;width:auto;height:auto;object-fit:contain;border-radius:4px;">
+           style="width:100%;max-height:120px;object-fit:contain;border-radius:4px;">
     </a>
     <div>Autocorrelation</div>
   </div>
 
-  <div style="flex:1 1 calc(50% - 12px);min-width:220px;box-sizing:border-box;text-align:center;">
+  <div style="flex:0 0 calc(50% - 12px);max-width:calc(50% - 12px);min-width:160px;box-sizing:border-box;text-align:center;">
     <a href="images/F2.png">
       <img src="images/F2.png" alt="F2 violin plot"
-           style="max-width:100%;max-height:180px;width:auto;height:auto;object-fit:contain;border-radius:4px;">
+           style="width:100%;max-height:120px;object-fit:contain;border-radius:4px;">
     </a>
     <div>F2 violin plot</div>
   </div>
 
-  <div style="flex:1 1 calc(50% - 12px);min-width:220px;box-sizing:border-box;text-align:center;">
+  <div style="flex:0 0 calc(50% - 12px);max-width:calc(50% - 12px);min-width:160px;box-sizing:border-box;text-align:center;">
     <a href="images/F3.png">
       <img src="images/F3.png" alt="F3 violin plot"
-           style="max-width:100%;max-height:180px;width:auto;height:auto;object-fit:contain;border-radius:4px;">
+           style="width:100%;max-height:120px;object-fit:contain;border-radius:4px;">
     </a>
     <div>F3 violin plot</div>
   </div>
 
-  <div style="flex:1 1 calc(50% - 12px);min-width:220px;box-sizing:border-box;text-align:center;">
+  <div style="flex:0 0 calc(50% - 12px);max-width:calc(50% - 12px);min-width:160px;box-sizing:border-box;text-align:center;">
     <a href="images/F4.png">
       <img src="images/F4.png" alt="F4 violin plot"
-           style="max-width:100%;max-height:180px;width:auto;height:auto;object-fit:contain;border-radius:4px;">
+           style="width:100%;max-height:120px;object-fit:contain;border-radius:4px;">
     </a>
     <div>F4 violin plot</div>
   </div>
