@@ -211,17 +211,49 @@ Summary
 ### 3.6 Dimensionality reduction (PCA)
 - PCA on selected features (F1–F4) per region for visualization and centroid analysis. The first 3 PCs retain most variance (> ~95% for aggregated features) and are interpreted as: PC1 (vigor), PC2 (stability), PC3 (rhythm).
 
-- ![PCA upper limbs](images/FACupperLimbs.JPG) - PCA upper limbs
-- ![PCA lower limbs](images/FAClowerLimbs.JPG) - PCA lower limbs
-- ![PCA trunk](images/FACsacrum.JPG) - PCA trunk
-- ![PCA Variance](images/pca_variance.png) — PCA variance figure (already present)
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;justify-content:space-between;">
+  <a href="images/FACupperLimbs.JPG" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/FACupperLimbs.JPG" alt="PCA upper limbs"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>PCA upper limbs</div>
+  </a>
+
+  <a href="images/FAClowerLimbs.JPG" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/FAClowerLimbs.JPG" alt="PCA lower limbs"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>PCA lower limbs</div>
+  </a>
+
+  <a href="images/FACsacrum.JPG" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/FACsacrum.JPG" alt="PCA trunk"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>PCA trunk</div>
+  </a>
+
+  <a href="images/pca_variance.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/pca_variance.png" alt="PCA Variance"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>PCA Variance</div>
+  </a>
+</div>
 
 ### 3.7 Class imbalance handling
 - SMOTE is embedded in the pipeline and treated as hyperparameters (sampling_strategy ∈ {'auto','not majority'}, k_neighbors ∈ {3,5,7}).  
 - SMOTE is applied only on training folds inside cross‑validation to avoid leakage; sampling settings are optimized together with classifier hyperparameters.
 
-- ![FAC class distribution](images/fac_class_distribution.png) - FAC class distribution
-- ![PFAC class distribution](images/ffp_class_distribution.png) - FFP class distribution
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;justify-content:space-between;">
+  <a href="images/fac_class_distribution.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/fac_class_distribution.png" alt="FAC class distribution"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>FAC class distribution</div>
+  </a>
+
+  <a href="images/ffp_class_distribution.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/ffp_class_distribution.png" alt="FFP class distribution"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>FFP class distribution</div>
+  </a>
+</div>
 
 
 ### 3.8 Model selection & optimization
@@ -254,18 +286,54 @@ This section reports key outcomes for the stroke sub‑study (Research Question 
 - Key takeaways: high ROC–AUC does not alone ensure clinically useful detection of minority frail cases; sensitivity, precision and specificity must be considered alongside F1.
 
 Figures / images:
-- ![ROC FAC](images/ROC_FAC.png) - ROC (FAC multi‑class, macro average).
-- ![ROC FFP](images/ROC_FFP.png) - ROC (FFP after FAC→FFP mapping).
-- ![FFP confusion matrix](images/RF_FFP_confusion_matrix_abs.png) - FFP confusion matrix (counts).
-- ![FFP confusion matrix percent](images/RF_FFP_confusion_matrix_pct.png) - FFP confusion matrix (percent).
-- ![FAC confusion matrix](images/confMatrixRFandFAC.png) - FAC confusion matrix (counts).
-- ![FAC confusion matrix percent](images/confMatrixRFandFACpercentage.png) - FAC confusion matrix (percent).
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;justify-content:space-between;">
+  <a href="images/ROC_FAC.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/ROC_FAC.png" alt="ROC FAC"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>ROC (FAC multi‑class, macro average)</div>
+  </a>
+
+  <a href="images/ROC_FFP.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/ROC_FFP.png" alt="ROC FFP"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>ROC (FFP after FAC→FFP mapping)</div>
+  </a>
+
+  <a href="images/RF_FFP_confusion_matrix_abs.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/RF_FFP_confusion_matrix_abs.png" alt="FFP confusion matrix"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>FFP confusion matrix (counts)</div>
+  </a>
+
+  <a href="images/RF_FFP_confusion_matrix_pct.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/RF_FFP_confusion_matrix_pct.png" alt="FFP confusion matrix percent"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>FFP confusion matrix (percent)</div>
+  </a>
+
+  <a href="images/confMatrixRFandFAC.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/confMatrixRFandFAC.png" alt="FAC confusion matrix"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>FAC confusion matrix (counts)</div>
+  </a>
+
+  <a href="images/confMatrixRFandFACpercentage.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/confMatrixRFandFACpercentage.png" alt="FAC confusion matrix percent"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>FAC confusion matrix (percent)</div>
+  </a>
+</div>
 
 #### 4.2.2 Second sub‑problem — Predicting health improvement between visits  
 - Patient‑level improvement: Random Forest predicted patient‑level improvement perfectly on the held‑out test set (10/10 correct in this cohort). Table summary: RF Patient‑level F1 = 1.00 (see notebook). Radar plots compare predicted vs true medians per placement and visit: images/radar_Gradient_Boosting.png and images/radar_Random_Forest.png (saved as radar_{model}.png by the notebook).  
-- Patient×Placement level: performance degrades when evaluating each patient×sensor placement (n ≈ 47 placements). Gradient Boosting achieved higher placement‑level accuracy (≈ 0.87) vs RF (≈ 0.81). Confusion matrices for improvement prediction (RF) are saved under images/{model}_imp_confusion_* (e.g., images/Random_Forest_imp_confusion_counts.png).  
-- Figures / images:
-  - ![Radar Forest Groundtruth](images/radar_Random_Forest.png) - radar plots (Random Forest predictions vs true).
+- Patient×Placement level: performance degrades when evaluating each patient×sensor placement (n ≈ 47 placements). Gradient Boosting achieved higher placement‑level accuracy (≈ 0.87) vs RF (≈ 0.81).
+
+  <a href="images/radar_Random_Forest.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/radar_Random_Forest.png" alt="Radar Forest Groundtruth"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>Radar plots (Random Forest predictions vs true)</div>
+  </a>
+</div>
 
 #### 4.2.3 Notes on clinical trade‑offs and SMOTE  
 - The pipeline uses adaptive SMOTE inside CV and optimizes its parameters with each classifier; this improves recall for minority frail classes but can increase synthetic‑sample overlap near boundaries and reduce specificity. Classifier thresholds can be tuned for application‑specific trade‑offs (screening vs triage vs trial recruitment).  
@@ -277,10 +345,31 @@ Figures / images:
 - Random Forest impurity reduction and SHAP agree that biomechanical predictors F1 (intensity) and F4 (dynamism) are the dominant cues (combined ~70%+ of impurity reduction). F3 (periodicity) and F2 (cadence) provide secondary information. ReliefF ranking also supports F4 and F1 as top features (see Table 12 and Table 22).  
 - SHAP per‑class plots (FAC 1…5) show how feature values push probabilities toward or away from each FAC class; these are rendered and saved by the notebook (images/summary_beeswarm_*.png and images/force_*.png).
 
-- ![Ranking importance features](images/global_importance_gb_FAC_AllSensors.png),   
-- ![SHAP FAC 1](images/summary_beeswarm_fac1_biomech_only.png) — SHAP FAC 1
-- ![SHAP FAC 3](images/summary_beeswarm_fac3_biomech_only.png) — SHAP FAC 3
-- ![SHAP FAC 4](images/summary_beeswarm_fac4_biomech_only.png) — SHAP FAC 4
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;justify-content:space-between;">
+  <a href="images/global_importance_gb_FAC_AllSensors.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/global_importance_gb_FAC_AllSensors.png" alt="Ranking importance features"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>Ranking importance features</div>
+  </a>
+
+  <a href="images/summary_beeswarm_fac1_biomech_only.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/summary_beeswarm_fac1_biomech_only.png" alt="SHAP FAC 1"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>SHAP FAC 1</div>
+  </a>
+
+  <a href="images/summary_beeswarm_fac3_biomech_only.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/summary_beeswarm_fac3_biomech_only.png" alt="SHAP FAC 3"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>SHAP FAC 3</div>
+  </a>
+
+  <a href="images/summary_beeswarm_fac4_biomech_only.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/summary_beeswarm_fac4_biomech_only.png" alt="SHAP FAC 4"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>SHAP FAC 4</div>
+  </a>
+</div>
 
 ### 4.4 Research question 4 — Frameworks comparison
 
@@ -290,8 +379,19 @@ Figures / images:
   - Our RF + adaptive‑SMOTE pipeline achieves competitive results on the stroke FAC task (RF window‑level ROC–AUC ≈ 0.90, FFP F1 ≈ 0.70) and excellent patient‑level improvement prediction in this small cohort.
 
 Comparison / figures:
-- ![Class balance & study comparison.](images/balanceSMOTE.png) - class balance & study comparison
-- ![class balance baseline Abbas](images/pcaBaseline.jpg) - class balance baseline Abbas
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;justify-content:space-between;">
+  <a href="images/balanceSMOTE.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/balanceSMOTE.png" alt="Class balance & study comparison"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>Class balance & study comparison</div>
+  </a>
+
+  <a href="images/pcaBaseline.jpg" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+    <img src="images/pcaBaseline.jpg" alt="class balance baseline Abbas"
+         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+    <div>class balance baseline Abbas</div>
+  </a>
+</div>
 
 Notes on reproducibility and limitations (brief)
 - Small and imbalanced stroke cohort, limited longitudinal follow‑up, and synthetic oversampling (SMOTE) limit generalizability. See Section 5 (Limitations & improvements) in the thesis for proposals (data pooling, interoperability, richer features and controlled trials).
