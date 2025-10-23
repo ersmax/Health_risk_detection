@@ -116,6 +116,11 @@ Selected regional studies (brief)
   - Collection methods: 
   `images/fig2_wrist_IMU.png` 
   `images/fig3_foot_IMU.png`
+- Collection methods: 
+- `images/fig2_wrist_IMU.png`
++ Collection methods:
++ ![Wrist IMU schematic](images/fig2_wrist_IMU.png)
++ [Open full image](images/fig2_wrist_IMU.png)
 
 - United Kingdom
   - Leghissa et al.: large longitudinal study using derived FFP from survey data; logistic regression and MultiSURF feature selection; emphasis on long‑term prediction and feature derivation from questionnaires.
