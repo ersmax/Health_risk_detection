@@ -104,49 +104,30 @@ Highlights
   - Longitudinal and multi‑device data improve detection/prediction but require careful preprocessing and interoperability.
 
 Selected regional studies (brief)
-- European Union
-  - Abbas et al. (2021, 2022): objective measurements + self‑reports; wearable longitudinal monitoring; derived gait features (intensity, dynamism, cadence, pattern). Found measured data often outperform self‑reported alone; combined data improves reliability.
-  - Bochniewicz et al.: wrist IMU + Random Forest to classify functional vs non‑functional arm use (high accuracy).
-  - Zhou et al.: foot IMU trajectories and spatio‑temporal gait metrics for stroke rehab monitoring (visualization + improvement detection).
+### European Union
+  - Abbas et al. (2021, 2022): objective measurements + self‑reports; wearable longitudinal monitoring; derived gait features (intensity, dynamism, cadence, pattern). See: "Identifying Physical Worsening in Elderly Using Objective and Self‑Reported Measures" (ICABME 2021) — https://ieeexplore.ieee.org/document/9604819 and "Acceleration‑based gait analysis for frailty assessment in older adults" (Pattern Recognition Letters, 2022) — https://www.sciencedirect.com/science/article/abs/pii/S0167865522002197. Combined measured + self‑reported features improve reliability.
+  - Bochniewicz et al.: wrist IMU + Random Forest to classify functional vs non‑functional arm use. See "Measuring Functional Arm Movement after Stroke Using a Single Wrist‑Worn Sensor and Machine Learning" (2017) — https://pubmed.ncbi.nlm.nih.gov/28781056/
+  - Zhou et al.: foot IMU trajectories and spatio‑temporal gait metrics for stroke rehab monitoring (visualization + improvement detection). Dataset / paper: Zenodo dataset (2024) — https://zenodo.org/records/10534055 (DOI:10.5281/zenodo.10534055) and conference paper — https://pubmed.ncbi.nlm.nih.gov/40039788/.
 
-  - Collection methods: 
+### United Kingdom
+  - Leghissa et al.: large longitudinal study using derived FFP from survey data; logistic regression and MultiSURF feature selection; emphasis on long‑term prediction and feature derivation from questionnaires. See: "FRELSA: A dataset for frailty in elderly people..." — https://www.sciencedirect.com/science/article/pii/S1386505624002661
 
-  <div style="display:flex;gap:12px;align-items:flex-start;">
-    <a href="images/fig2_wrist_IMU.png"><img src="images/fig2_wrist_IMU.png" alt="Wrist IMU schematic" style="height:160px;object-fit:contain;"></a>
-    <a href="images/fig1_limbs_IMU.png"><img src="images/fig1_limbs_IMU.png" alt="5 sensors IMU schematic" style="height:160px;object-fit:contain;"></a>
-    <a href="images/fig3_foot_IMU.png"><img src="images/fig3_foot_IMU.png" alt="Foot IMU sensor" style="height:160px;object-fit:contain;"></a>
-  </div>
+### North America
+  - Aponte et al.: primary care EMR data (CPCSSN) with structured features; boosting models performed best; used SMOTE and emphasized physician‑assigned labels variability. See: "Machine learning for identification of frailty in Canadian primary care practices" — https://ijpds.org/article/view/1650
+  - Thapa et al.: fall risk prediction using vitals + EHR; XGBoost best and SHAP used for explainability (medications, comorbidities top predictors). See: "Predicting Falls in Long-term Care Facilities: Machine Learning Study" (JMIR Aging, 2022) — https://aging.jmir.org/2022/2/e35373
+  - Chen / Lucas et al.: IMU‑based monitoring in stroke patients (XGBoost / decision tree / RF; accuracy often 70–90% depending on task and features). See: Chen (IJERPH pilot) — https://pubmed.ncbi.nlm.nih.gov/33572116/ and Lucas et al. (IEEE JTEHM) — https://doi.org/10.1109/JTEHM.2019.2897306
 
-- United Kingdom
-  - Leghissa et al.: large longitudinal study using derived FFP from survey data; logistic regression and MultiSURF feature selection; emphasis on long‑term prediction and feature derivation from questionnaires.
+### Asia
+  - Wu et al. (China): CLHLS‑HF cohort, Frailty Index trajectories and group‑based trajectory modelling; Random Forest + SHAP for explainability; social, ADL and chronic disease variables important. See: Wu et al. (BMC Geriatrics, 2022) — https://doi.org/10.1186/s12877-022-03576-5
+  - Hong Kong studies (Yu et al., Wang et al.): integrated telehealth + wearable monitoring with decision trees and small neural nets; combining station vitals and continuous wearable data improved anomaly detection. See: Yu et al. (IEEE Access, 2018) — https://ieeexplore.ieee.org/document/8389199 and Wang et al. (JMIR, 2020) — https://www.jmir.org/2020/9/e19223/
+  - Korea (Kim / Lee / Park): video/vision and IMU approaches to classify FAC and gait severity in stroke patients using deep or classical ML (accuracy ≈ 80–90%). See: Kim et al. (Topics in Stroke Rehabilitation, 2024) — https://pubmed.ncbi.nlm.nih.gov/38841903/ ; Lee et al. (Journal of Personalized Medicine, 2021) — https://www.mdpi.com/2075-4426/11/11/1080 ; Park et al. (JMIR preprint) — https://pmc.ncbi.nlm.nih.gov/articles/PMC7527905/
 
-- North America
-  - Aponte et al.: primary care EMR data (CPCSSN) with structured features; boosting models performed best; used SMOTE and emphasized physician‑assigned labels variability.
-  - Thapa et al.: fall risk prediction using vitals + EHR; XGBoost best and SHAP used for explainability (medications, comorbidities top predictors).
-  - Chen / Lucas et al.: IMU‑based monitoring in stroke patients (XGBoost / decision tree / RF; accuracy often 70–90% depending on task and features).
+### Further reading 
+- Leghissa et al. (FRELSA), Morley et al., Fried et al., Rockwood & Mitnitski — for definitions and frailty indices. See: Leghissa (FRELSA) — https://www.sciencedirect.com/science/article/pii/S1386505624002661 ; Morley — https://pubmed.ncbi.nlm.nih.gov/23764209/ ; Fried (FFP) — https://doi.org/10.1093/gerona/56.3.M146 ; Rockwood & Mitnitski — https://www.researchgate.net/publication/6204727_Frailty_in_Relation_to_the_Accumulation_of_Deficits
+- Abbas et al., Bochniewicz et al., Zhou et al. — EU sensor and longitudinal works. See: Abbas (ICABME 2021) — https://ieeexplore.ieee.org/document/9604819 and Abbas (2022 PRL) — https://www.sciencedirect.com/science/article/abs/pii/S0167865522002197 ; Bochniewicz et al. — https://pubmed.ncbi.nlm.nih.gov/28781056/ ; Zhou et al. (stroke IMU dataset) — https://doi.org/10.5281/zenodo.10534055
+- Aponte et al., Thapa et al., Chen et al., Lucas et al. — North American sensor/EHR studies. See: Aponte et al. — https://ijpds.org/article/view/1650 ; Thapa et al. (JMIR Aging) — https://aging.jmir.org/2022/2/e35373 ; Chen et al. (IJERPH) — https://pubmed.ncbi.nlm.nih.gov/33572116/ ; Lucas et al. (IEEE JTEHM) — https://doi.org/10.1109/JTEHM.2019.2897306
+- Wu et al., Yu et al., Kim/Lee/Park — Asia region studies (China, Hong Kong, Korea). See: Wu et al. (BMC Geriatrics) — https://doi.org/10.1186/s12877-022-03576-5 ; Yu et al. (IEEE Access) — https://ieeexplore.ieee.org/document/8389199 ; Lee et al. (JPM 2021) — https://www.mdpi.com/2075-4426/11/11/1080 ; Kim et al. (Topics in Stroke Rehabilitation, 2024) — https://pubmed.ncbi.nlm.nih.gov/38841903/ ; Park et al. (JMIR preprint) — https://pmc.ncbi.nlm.nih.gov/articles/PMC7527905/
 
-- Asia
-  - Wu et al. (China): CLHLS‑HF cohort, Frailty Index trajectories and group‑based trajectory modelling; Random Forest + SHAP for explainability; social, ADL and chronic disease variables important.
-  - Hong Kong studies (Yu et al., Wang et al.): integrated telehealth + wearable monitoring with decision trees and small neural nets; combining station vitals and continuous wearable data improved anomaly detection.
-  - Korea (Kim / Lee / Park): video/vision and IMU approaches to classify FAC and gait severity in stroke patients using deep or classical ML (accuracy ≈ 80–90%).
-
-Images tracked in this repository
-- ![Wrist IMU schematic](images/fig2_wrist_IMU.png) — example wrist‑IMU used in literature (Bochniewicz et al. style)
-- ![Foot IMU sensor](images/fig3_foot_IMU.png)  — foot IMU / acceleration visualization (Zhou et al. style)
-- ![5 sensors IMU schematic](images/fig1_limbs_IMU.png) — four‑limb accelerometer layout (Lucas et al. style)
-- ![PCA Variance](images/pca_variance.png) — PCA variance figure (already present)
-- ![Acceleration magnitude](images/acceleration_magnitude.png) — example time‑domain acceleration magnitude (from notebook)
-- ![ROC FAC](images/ROC_FAC.png), 
-- ![ROC FFP](images/ROC_FFP.png),  
-- ![Ranking importance features](images/global_importance_gb_FAC_AllSensors.png),   
-- ![SHAP FAC 1](images/summary_beeswarm_fac1_biomech_only.png) — SHAP FAC 1
-- ![SHAP FAC 4](images/summary_beeswarm_fac4_biomech_only.png) — SHAP FAC 4
-
-Further reading / citations
-- Leghissa et al., Morley et al., Fried et al., Rockwood & Mitnitski — for definitions and frailty indices.
-- Abbas et al., Bochniewicz et al., Zhou et al. — EU sensor and longitudinal works.
-- Aponte et al., Thapa et al., Chen et al., Lucas et al. — North American sensor/EHR studies.
-- Wu et al., Yu et al., Kim/Lee/Park — Asia region studies (China, Hong Kong, Korea).
 
 ## 3 Research Method
 
@@ -158,6 +139,14 @@ Summary
 ### 3.1 Overview of targets and data selection
 - Primary classification target: Fried Frailty Phenotype (FFP) where available; for the stroke dataset FAC is used and mapped to FFP (Table 7).  
 - Included datasets: EU Open Research Repository sensor datasets and the stroke cohort from Zhou et al. (Charité, Germany). UK/China datasets were considered but excluded where self-reports or access limitations could bias model training.
+
+#### Collection methods: 
+
+  <div style="display:flex;gap:12px;align-items:flex-start;">
+    <a href="images/fig2_wrist_IMU.png"><img src="images/fig2_wrist_IMU.png" alt="Wrist IMU schematic" style="height:160px;object-fit:contain;"></a>
+    <a href="images/fig1_limbs_IMU.png"><img src="images/fig1_limbs_IMU.png" alt="5 sensors IMU schematic" style="height:160px;object-fit:contain;"></a>
+    <a href="images/fig3_foot_IMU.png"><img src="images/fig3_foot_IMU.png" alt="Foot IMU sensor" style="height:160px;object-fit:contain;"></a>
+  </div>
 
 ### 3.2 Stroke sub-study (research question 2)
 - Goal: (i) classify mobility (FAC / derived FFP) from IMU windows, (ii) predict short-term improvement between two visits.  
@@ -176,12 +165,34 @@ Summary
 - Optional: AR‑based features (F5/F6) computed from vertical axis and used/neutralized when appropriate.  
 - Features are pooled per placement or aggregated by placement‑group (LowerLimbs, UpperLimbs, Trunk) for analysis.
 
-- ![Acceleration magnitude](images/acceleration_magnitude.png) - Acceleration magnitude
-- ![F1](images/F1.png) - F1 violin plot
-- ![Autocorrelation](images/autocorr_single.png) - Autocorrelation
-- ![F2](images/F2.png) - F2 violin plot
-- ![F3](images/F3.png) - F3 violin plot
-- ![F4](images/F4.png) - F4 violin plot
+<div style="display:flex;flex-wrap:wrap;gap:12px;">
+  <div style="flex:1 1 48%;text-align:center;">
+    <a href="images/acceleration_magnitude.png"><img src="images/acceleration_magnitude.png" alt="Acceleration magnitude" style="max-width:100%;height:auto;"></a>
+    <div>Acceleration magnitude</div>
+  </div>
+  <div style="flex:1 1 48%;text-align:center;">
+    <a href="images/F1.png"><img src="images/F1.png" alt="F1 violin plot" style="max-width:100%;height:auto;"></a>
+    <div>F1 violin plot</div>
+  </div>
+
+  <div style="flex:1 1 48%;text-align:center;">
+    <a href="images/autocorr_single.png"><img src="images/autocorr_single.png" alt="Autocorrelation" style="max-width:100%;height:auto;"></a>
+    <div>Autocorrelation</div>
+  </div>
+  <div style="flex:1 1 48%;text-align:center;">
+    <a href="images/F2.png"><img src="images/F2.png" alt="F2 violin plot" style="max-width:100%;height:auto;"></a>
+    <div>F2 violin plot</div>
+  </div>
+
+  <div style="flex:1 1 48%;text-align:center;">
+    <a href="images/F3.png"><img src="images/F3.png" alt="F3 violin plot" style="max-width:100%;height:auto;"></a>
+    <div>F3 violin plot</div>
+  </div>
+  <div style="flex:1 1 48%;text-align:center;">
+    <a href="images/F4.png"><img src="images/F4.png" alt="F4 violin plot" style="max-width:100%;height:auto;"></a>
+    <div>F4 violin plot</div>
+  </div>
+</div>
 
 ### 3.5 Statistical testing & feature ranking
 - Non‑parametric tests: Mann–Whitney U (pairwise) and Kruskal–Wallis across Robust / Pre‑frail / Frail.  
