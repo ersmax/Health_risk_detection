@@ -142,7 +142,7 @@ Images tracked in this repository
 - ![Acceleration magnitude](images/acceleration_magnitude.png) — example time‑domain acceleration magnitude (from notebook)
 - ![ROC FAC](images/ROC_FAC.png), 
 - ![ROC FFP](images/ROC_FFP.png),  
-- ![Ranking importance features](images/global_importance_gb_FFP_AllSensors.png),   
+- ![Ranking importance features](images/global_importance_gb_FAC_AllSensors.png),   
 - ![SHAP FAC 1](images/summary_beeswarm_fac1_biomech_only.png) — SHAP FAC 1
 - ![SHAP FAC 4](images/summary_beeswarm_fac4_biomech_only.png) — SHAP FAC 4
 
