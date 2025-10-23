@@ -8,7 +8,7 @@ For the first objective, we merge physical measurements with socio‑clinical va
 
 Despite challenges such as imbalanced classes and scarce longitudinal follow‑up, our framework shows robust generalizability and interpretability. It surpasses current methods in elderly frailty classification and nearly matches leading stroke‑related approaches. By combining sensor‑based metrics with socio‑clinical data, the framework equips clinicians with a practical tool for frailty evaluation. Finally, we emphasize the necessity of interoperable health systems and call for closer collaboration between healthcare professionals and machine‑learning experts to shift from reactive treatment toward proactive frailty prevention across diverse populations.
 
-DOI Rsesearch paper
+DOI Research paper
 -----------------
 http://dx.doi.org/10.13140/RG.2.2.26133.23529
 
