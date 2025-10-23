@@ -165,40 +165,40 @@ Summary
 - Optional: AR‑based features (F5/F6) computed from vertical axis and used/neutralized when appropriate.  
 - Features are pooled per placement or aggregated by placement‑group (LowerLimbs, UpperLimbs, Trunk) for analysis.
 
-<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;justify-content:space-between;">
-  <a href="images/acceleration_magnitude.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:flex-start;">
+  <a href="images/acceleration_magnitude.png" style="flex:0 0 calc(50% - 6px);max-width:calc(50% - 6px);min-width:120px;text-align:center;box-sizing:border-box;">
     <img src="images/acceleration_magnitude.png" alt="Acceleration magnitude"
-         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+         style="width:100%;height:auto;max-height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
     <div>Acceleration magnitude</div>
   </a>
 
-  <a href="images/F1.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+  <a href="images/F1.png" style="flex:0 0 calc(50% - 6px);max-width:calc(50% - 6px);min-width:120px;text-align:center;box-sizing:border-box;">
     <img src="images/F1.png" alt="F1 violin plot"
-         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+         style="width:100%;height:auto;max-height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
     <div>F1 violin plot</div>
   </a>
 
-  <a href="images/autocorr_single.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+  <a href="images/autocorr_single.png" style="flex:0 0 calc(50% - 6px);max-width:calc(50% - 6px);min-width:120px;text-align:center;box-sizing:border-box;">
     <img src="images/autocorr_single.png" alt="Autocorrelation"
-         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+         style="width:100%;height:auto;max-height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
     <div>Autocorrelation</div>
   </a>
 
-  <a href="images/F2.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+  <a href="images/F2.png" style="flex:0 0 calc(50% - 6px);max-width:calc(50% - 6px);min-width:120px;text-align:center;box-sizing:border-box;">
     <img src="images/F2.png" alt="F2 violin plot"
-         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+         style="width:100%;height:auto;max-height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
     <div>F2 violin plot</div>
   </a>
 
-  <a href="images/F3.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+  <a href="images/F3.png" style="flex:0 0 calc(50% - 6px);max-width:calc(50% - 6px);min-width:120px;text-align:center;box-sizing:border-box;">
     <img src="images/F3.png" alt="F3 violin plot"
-         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+         style="width:100%;height:auto;max-height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
     <div>F3 violin plot</div>
   </a>
 
-  <a href="images/F4.png" style="flex:0 0 48%;min-width:140px;text-align:center;box-sizing:border-box;">
+  <a href="images/F4.png" style="flex:0 0 calc(50% - 6px);max-width:calc(50% - 6px);min-width:120px;text-align:center;box-sizing:border-box;">
     <img src="images/F4.png" alt="F4 violin plot"
-         style="height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
+         style="width:100%;height:auto;max-height:140px;object-fit:contain;border-radius:4px;display:block;margin:0 auto;">
     <div>F4 violin plot</div>
   </a>
 </div>
