@@ -159,19 +159,19 @@ Summary
 - Two complementary EU datasets are used: a cross‑sectional, socio‑clinical dataset and a longitudinal IMU dataset (Zhou et al.) for stroke rehabilitation.  
 - Pipeline stages: data ingestion → windowing → feature engineering (F1–F4, AR features optional) → stats & ranking → PCA → SMOTE (embedded, tuned) → randomized hyperparameter search → evaluation and interpretability (SHAP + tree importances).
 
-3.1 Overview of targets and data selection
+### 3.1 Overview of targets and data selection
 - Primary classification target: Fried Frailty Phenotype (FFP) where available; for the stroke dataset FAC is used and mapped to FFP (Table 7).  
 - Included datasets: EU Open Research Repository sensor datasets and the stroke cohort from Zhou et al. (Charité, Germany). UK/China datasets were considered but excluded where self-reports or access limitations could bias model training.
 
-3.2 Stroke sub-study (research question 2)
+### 3.2 Stroke sub-study (research question 2)
 - Goal: (i) classify mobility (FAC / derived FFP) from IMU windows, (ii) predict short-term improvement between two visits.  
 - Raw IMU sampling: 120 Hz, five sensor placements per subject (LF, RF, LW, RW, SA). Windows: non-overlapping 6 s (720 samples). Final stroke window set: 3,248 windows after cleaning.
 
-3.3 Data reduction & missing data
+### 3.3 Data reduction & missing data
 - Non-overlapping 6 s windows (discard incomplete trailing samples).  
 - Missing wrist data for subject imu0011 (visit1) is documented and excluded for those placements; no imputation performed due to low N.
 
-3.4 Feature engineering (per 6 s window)
+### 3.4 Feature engineering (per 6 s window)
 - Core signal-based gait features (per sensor placement):  
   - F1 — Intensity: trimmed (25%) range of acceleration magnitude (||a||, in g).  
   - F2 — Cadence: detected peaks per window → steps/sec.  
@@ -180,43 +180,50 @@ Summary
 - Optional: AR‑based features (F5/F6) computed from vertical axis and used/neutralized when appropriate.  
 - Features are pooled per placement or aggregated by placement‑group (LowerLimbs, UpperLimbs, Trunk) for analysis.
 
-3.5 Statistical testing & feature ranking
+- ![Acceleration magnitude](images/acceleration_magnitude.png) - Acceleration magnitude
+- ![F1](images/F1.png) - F1 violin plot
+- ![Autocorrelation](images/autocorr_single.png) - Autocorrelation
+- ![F2](images/F2.png) - F2 violin plot
+- ![F3](images/F3.png) - F3 violin plot
+- ![F4](images/F4.png) - F4 violin plot
+
+### 3.5 Statistical testing & feature ranking
 - Non‑parametric tests: Mann–Whitney U (pairwise) and Kruskal–Wallis across Robust / Pre‑frail / Frail.  
 - ReliefF (k=5) for feature ranking; F4 and F1 rank highest in this study (consistent with baseline trends).
 
-3.6 Dimensionality reduction (PCA)
+
+### 3.6 Dimensionality reduction (PCA)
 - PCA on selected features (F1–F4) per region for visualization and centroid analysis. The first 3 PCs retain most variance (> ~95% for aggregated features) and are interpreted as: PC1 (vigor), PC2 (stability), PC3 (rhythm).
 
-3.7 Class imbalance handling
+- ![PCA upper limbs](images/FACupperLimbs.JPG) - PCA upper limbs
+- ![PCA lower limbs](images/FAClowerLimbs.JPG) - PCA lower limbs
+- ![PCA trunk](images/FACsacrum.JPG) - PCA trunk
+- ![PCA Variance](images/pca_variance.png) — PCA variance figure (already present)
+
+### 3.7 Class imbalance handling
 - SMOTE is embedded in the pipeline and treated as hyperparameters (sampling_strategy ∈ {'auto','not majority'}, k_neighbors ∈ {3,5,7}).  
 - SMOTE is applied only on training folds inside cross‑validation to avoid leakage; sampling settings are optimized together with classifier hyperparameters.
 
-3.8 Model selection & optimization
+- ![FAC class distribution](images/fac_class_distribution.png) - FAC class distribution
+- ![PFAC class distribution](images/ffp_class_distribution.png) - FFP class distribution
+
+
+### 3.8 Model selection & optimization
 - Classifiers: Decision Tree, Random Forest, Gradient Boosting, Logistic Regression (elasticnet), SVM (RBF), MLP.  
 - Hyperparameter tuning: RandomizedSearchCV with StratifiedKFold (5 folds), scoring = f1_macro. SMOTE parameters included in the search space. Train/test split = 80:20. Example best params are summarized in Table 14 (see thesis/notebook).
 
-3.9 Predicting improvement (aggregation)
+### 3.9 Predicting improvement (aggregation)
 - Window-level FAC predictions → per patient & placement medians for visit1 and visit2.  
 - Improvement flag = 1 if median_pred_visit2 − median_pred_visit1 > 0 (Eq. 9). Same rule applied to true FAC medians to obtain ground truth. Performance reported at patient and patient×placement granularity.
 
-3.10 Interpretability
+## 3.10 Interpretability
 - Two complementary explainability methods:
   - Tree-based feature importances (RF / GB): fast, global view of feature contribution.  
   - SHAP: global and per-sample explanations for FAC and FFP derived predictions (beeswarm, force plots, class‑specific summary). Both are provided in notebooks and figures.
 
-3.11 Reproducibility notes
+## 3.11 Reproducibility notes
 - Random states are set where applicable; SMOTE and randomized search variability remains — seeds stored in notebooks.  
 - Full end‑to‑end runs require raw datasets placed under dataset* folders; heavy steps (windowing, AR fitting, randomized searches) can be time‑consuming — cached CSVs such as master_windows_with_labels.csv are provided to speed reproductions.
-
-Images referenced for the Research Method section
-- images/acceleration_magnitude.png — time‑domain ||a(t)|| with trimmed signal and step markers (F1/F2 illustration).  
-- images/autocorr_single.png — normalized autocorrelation per body region (illustrates periodicity, used for F3).  
-- images/F3.png — violin + boxplots of F3 (entropy) by placement and frailty group.  
-- images/pca_variance.png — variance explained by PC1–PC3 (per region).  
-- images/balanceSMOTE.png — class distributions and study comparison (SMOTE / balance overview).  
-
-For implementation details, see the main notebook:
-- c:\Users\admin\Documents\frailty\prediction.ipynb (cells implementing windowing, F1–F4, PCA, SMOTE-in-pipeline, randomized search and SHAP).
 
 ## 4 Experimental results
 
@@ -224,49 +231,40 @@ This section reports key outcomes for the stroke sub‑study (Research Question 
 
 ### 4.2 Research question 2 — Frailty classification & prediction of health improvement (stroke)
 
-4.2.1 First sub‑problem — FAC (mobility) classification  
+#### 4.2.1 First sub‑problem — FAC (mobility) classification  
 - Six tuned classifiers were evaluated on the multi‑class FAC task (FAC 1–5). Results are reported as macro‑averaged metrics to mitigate class imbalance effects. Random Forest achieved the best window‑level F1 (0.636) and ROC–AUC (0.901). Gradient Boosting and the MLP follow closely (F1 ≈ 0.60–0.62). Logistic Regression scored lowest (F1 ≈ 0.40).  
 - Collapsing FAC into FFP (FFP: Robust / Semi‑frail / Frail) increases apparent accuracy; RF remains best (FFP F1 ≈ 0.696).  
 - ROC curves for FAC (multi‑class macro average) are saved in images/ROC_FAC.png; ROC curves after FFP mapping are in images/ROC_FFP.png. Confusion matrices are available in images/FFP_confusion_matrix.png and images/FFP_confusion_matrix_pct.png — they show most errors occur between adjacent classes (e.g., frail ↔ semi‑frail).  
 - Key takeaways: high ROC–AUC does not alone ensure clinically useful detection of minority frail cases; sensitivity, precision and specificity must be considered alongside F1.
 
 Figures / images:
-- images/ROC_FAC.png — ROC (FAC multi‑class, macro average).
-- images/ROC_FFP.png — ROC (FFP after FAC→FFP mapping).
-- images/FFP_confusion_matrix.png — FFP confusion matrix (counts).
-- images/FFP_confusion_matrix_pct.png — FFP confusion matrix (percent).
+- ![ROC FAC](images/ROC_FAC.png) - ROC (FAC multi‑class, macro average).
+- ![ROC FFP](images/ROC_FFP.png) - ROC (FFP after FAC→FFP mapping).
+- ![FFP confusion matrix](images/RF_FFP_confusion_matrix_abs.png) - FFP confusion matrix (counts).
+- ![FFP confusion matrix percent](images/RF_FFP_confusion_matrix_pct.png) - FFP confusion matrix (percent).
+- ![FAC confusion matrix](images/confMatrixRFandFAC.png) - FAC confusion matrix (counts).
+- ![FAC confusion matrix percent](images/confMatrixRFandFACpercentage.png) - FAC confusion matrix (percent).
 
-4.2.2 Second sub‑problem — Predicting health improvement between visits  
+#### 4.2.2 Second sub‑problem — Predicting health improvement between visits  
 - Patient‑level improvement: Random Forest predicted patient‑level improvement perfectly on the held‑out test set (10/10 correct in this cohort). Table summary: RF Patient‑level F1 = 1.00 (see notebook). Radar plots compare predicted vs true medians per placement and visit: images/radar_Gradient_Boosting.png and images/radar_Random_Forest.png (saved as radar_{model}.png by the notebook).  
 - Patient×Placement level: performance degrades when evaluating each patient×sensor placement (n ≈ 47 placements). Gradient Boosting achieved higher placement‑level accuracy (≈ 0.87) vs RF (≈ 0.81). Confusion matrices for improvement prediction (RF) are saved under images/{model}_imp_confusion_* (e.g., images/Random_Forest_imp_confusion_counts.png).  
 - Figures / images:
-  - images/ROC_improvement_all_models.png — ROC for improvement (patient×placement).
-  - images/radar_Random_Forest.png — radar plots (Random Forest predictions vs true).
-  - images/radar_Gradient_Boosting.png — radar plots (GBM predictions vs true).
-  - images/Random_Forest_imp_confusion_counts.png / images/Random_Forest_imp_confusion_pct_col.png — improvement confusion matrices.
+  - ![Radar Forest Groundtruth](images/radar_Random_Forest.png) - radar plots (Random Forest predictions vs true).
 
-4.2.3 Notes on clinical trade‑offs and SMOTE  
+#### 4.2.3 Notes on clinical trade‑offs and SMOTE  
 - The pipeline uses adaptive SMOTE inside CV and optimizes its parameters with each classifier; this improves recall for minority frail classes but can increase synthetic‑sample overlap near boundaries and reduce specificity. Classifier thresholds can be tuned for application‑specific trade‑offs (screening vs triage vs trial recruitment).  
 - images/balanceSMOTE.png visualizes class balance across studies and the dataset used here.
 
 ### 4.3 Research question 3 — Interpretability
 
-4.3.1 Interpretability for the elderly frailty task (RQ1)  
-- Global rankings from entropy‑gain (XGBoost), MDI (Random Forest), and SHAP show strong consensus on top features (e.g., grip strength, exhaustion score, gait speed). See Table 21 in the thesis and notebook for the top‑10 comparison. Figures illustrating feature rankings and SHAP summaries are produced by the notebook (examples below).
-
-Images:
-- images/global_importance_gb_FFP_AllSensors.png — global SHAP importance (FFP task).
-- images/SHAP_feature_impact–probability_of_being_Frail.png — SHAP beeswarm for Frail probability.
-
-4.3.2 Interpretability for the stroke (FAC) task (RQ2)  
+#### 4.3.2 Interpretability for the stroke (FAC) task (RQ2)  
 - Random Forest impurity reduction and SHAP agree that biomechanical predictors F1 (intensity) and F4 (dynamism) are the dominant cues (combined ~70%+ of impurity reduction). F3 (periodicity) and F2 (cadence) provide secondary information. ReliefF ranking also supports F4 and F1 as top features (see Table 12 and Table 22).  
 - SHAP per‑class plots (FAC 1…5) show how feature values push probabilities toward or away from each FAC class; these are rendered and saved by the notebook (images/summary_beeswarm_*.png and images/force_*.png).
 
-Representative images:
-- images/global_importance_gb_FAC_AllSensors.png — global SHAP importance (FAC task).
-- images/acceleration_magnitude.png — illustrative time‑domain acceleration and trimmed signal (used to explain F1/F2).
-- images/autocorr_single.png — autocorrelation examples (used to explain F3).
-- images/F3.png — violin + boxplots for F3 (periodicity) by placement and frailty.
+- ![Ranking importance features](images/global_importance_gb_FAC_AllSensors.png),   
+- ![SHAP FAC 1](images/summary_beeswarm_fac1_biomech_only.png) — SHAP FAC 1
+- ![SHAP FAC 3](images/summary_beeswarm_fac3_biomech_only.png) — SHAP FAC 3
+- ![SHAP FAC 4](images/summary_beeswarm_fac4_biomech_only.png) — SHAP FAC 4
 
 ### 4.4 Research question 4 — Frameworks comparison
 
@@ -276,26 +274,26 @@ Representative images:
   - Our RF + adaptive‑SMOTE pipeline achieves competitive results on the stroke FAC task (RF window‑level ROC–AUC ≈ 0.90, FFP F1 ≈ 0.70) and excellent patient‑level improvement prediction in this small cohort.
 
 Comparison / figures:
-- images/balanceSMOTE.png — class balance & study comparison.
-- images/pca_variance.png — PCA variance explained by PCs (per body region).
-- images/confMatrixRFandFACpercentage.png, images/RF_FFP_confusion_matrix_pct.png — confusion matrices used for comparison plots.
+- ![Class balance & study comparison.](images/balanceSMOTE.png) - class balance & study comparison
+- ![class balance baseline Abbas](images/pcaBaseline.jpg) - class balance baseline Abbas
 
 Notes on reproducibility and limitations (brief)
 - Small and imbalanced stroke cohort, limited longitudinal follow‑up, and synthetic oversampling (SMOTE) limit generalizability. See Section 5 (Limitations & improvements) in the thesis for proposals (data pooling, interoperability, richer features and controlled trials).
 
-For full tables, numeric results and all plotted figures, open:
-- c:\Users\admin\Documents\frailty\prediction.ipynb — run the evaluation cells (Step 9 onward). The notebook saves the figures referenced above in the images/ folder.
+For full tables, numeric results and all plotted figures, open the notebook attached.
+
+--- 
 
 ## 5 Limitations & improvements
 
-Key limitations
+### Key limitations
 - Proxy target in stroke data: Zhou et al. (FAC) is a clinically relevant proxy but does not capture the full multidimensional Fried Frailty Phenotype (FFP). Results on FAC should be interpreted as proxy‑based.
 - Target variability: frailty lacks a single gold standard (FFP, Frailty Index, Clinical Frailty Scale). Label heterogeneity and clinician subjectivity reduce ML generalizability.
 - Small / imbalanced cohorts: the stroke cohort has 10 participants (3,248 windows) and the frailty cohort is limited; high class imbalance required SMOTE and harms realism and specificity.
 - EHR / interoperability issues: heterogeneous EHR standards and regional differences complicate feature engineering and model transfer across healthcare systems.
 - Synthetic‑sample risks: adaptive SMOTE mitigates imbalance but can create borderline synthetic examples that reduce specificity and generalizability.
 
-Proposed improvements
+### Proposed improvements
 - Acquire direct FFP labels or clinician assessments for stroke cohorts to validate FAC→FFP mapping and reduce proxy bias.
 - Multi‑label / multi‑instrument strategy: combine FFP, FI and CFS where available and study concordant vs discordant patient subgroups.
 - Increase cohort size and diversity: multi‑centre data pooling and longer longitudinal follow‑up to reduce intra‑patient variance and class imbalance.
@@ -310,6 +308,8 @@ Practical deployment roadmap
 2. Expand data collection to additional sites; collect FFP when possible.  
 3. Retrain with stratified sampling or cost‑sensitive learners; validate on held‑out external sites.  
 4. Build DSS dashboard with per‑case SHAP explanations and configurable operating points for screening vs triage.
+
+---
 
 ## 6 Conclusion
 
